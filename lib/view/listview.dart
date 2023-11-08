@@ -88,7 +88,6 @@ class Listview extends StatelessWidget {
                                 viewmodel.deleteTask(index);
                               },
                             ),
-
                             IconButton(icon: const Icon(Icons.edit_document), color: Colors.cyanAccent.shade700, iconSize: 22,
                               onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(

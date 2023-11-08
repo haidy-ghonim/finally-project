@@ -10,44 +10,52 @@ class DashPge extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer <Model> (builder: (context, viewmodel, child) {
       return Column(
-        mainAxisAlignment: MainAxisAlignment .center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment .center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded( child: Card(
-            child: Column (
+            child: Column(
+              mainAxisAlignment:MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Center(
-                  child: Column(
-                    children: [
-                      const Text("Total Task"),
-                      Center(child:Container(
-                        child: Text("Number is ${viewmodel.getlengthtask()}"), ))
-                    ],
-                  ),
-                )
+                 Text("Total Task", textAlign: TextAlign.center,style: TextStyle(fontWeight:FontWeight.bold,
+          fontSize: 20),
 
+                 ),
+                Center(child:Container(
+                  child: Text("Number is ${viewmodel.getlengthtask()}"), ))
               ],
             ),
           )),
+
 
           Expanded( child: Card(
             child: Column(
+              mainAxisAlignment:MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text("Non-Compelete Task"),
-                Text("Number is ${viewmodel.numTasksNonComplete}"),
+                Text("Non-Compelete Task", textAlign: TextAlign.center,style: TextStyle(fontWeight:FontWeight.bold,
+      fontSize: 20),
+                ),
+                Center(child:Container(
+                  child: Text("Number is ${viewmodel.numTasksNonComplete}"), ))
               ],
             ),
           )),
+
 
           Expanded( child: Card(
             child: Column(
+              mainAxisAlignment:MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text("Compelete Task"),
-                Text("Number is ${viewmodel.numTasksComplete}"),
+                Text("Compelete Task", textAlign: TextAlign.center,style: TextStyle(fontWeight:FontWeight.bold,
+                fontSize: 20),),
+                Center(child:Container(
+                  child: Text("Number is ${viewmodel.numTasksComplete}"), ))
               ],
             ),
           )),
-
         ],
       );
     });
