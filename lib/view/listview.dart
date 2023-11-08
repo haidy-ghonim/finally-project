@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:joureny/view/altertshow_dialog.dart';
 import 'package:joureny/view/editbottom.dart';
 import 'package:joureny/view/model.dart';
 import 'package:provider/provider.dart';
@@ -90,7 +91,8 @@ class Listview extends StatelessWidget {
 
                             IconButton(icon: const Icon(Icons.edit_document), color: Colors.cyanAccent.shade700, iconSize: 22,
                               onPressed: (){
-                                viewmodel.bottomSheetBuilder(EditBottom(task: viewmodel.getTaskTitle(index),index: index,), context);
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (context)=>AlertshowDialog()));
                               },
                             ),
                           ],
