@@ -59,8 +59,12 @@ class Model extends ChangeNotifier {
   //
   void bottomSheetBuilder(Widget bottomSheetView, BuildContext context) {
     showModalBottomSheet(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-        clipBehavior: Clip.antiAliasWithSaveLayer,
+        // shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero
+        // ),
+        //clipBehavior: Clip.antiAliasWithSaveLayer,
+      shape: Border.symmetric(vertical:BorderSide.none,horizontal:BorderSide.none ),
+        backgroundColor: Colors.cyan[600],
+        clipBehavior: Clip.none,
         context: context,
         builder: ((context) {
           return bottomSheetView;

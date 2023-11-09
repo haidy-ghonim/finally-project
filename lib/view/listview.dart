@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:joureny/view/altertshow_dialog.dart';
 import 'package:joureny/view/editbottom.dart';
 import 'package:joureny/view/model.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +17,6 @@ class Listview extends StatelessWidget {
           ),
 
           child: ListView.separated(
-
             padding: const EdgeInsets.all(15),
             separatorBuilder: (context , index){
               return const SizedBox(height: 10,);
@@ -35,13 +33,11 @@ class Listview extends StatelessWidget {
                 viewmodel.deleteTask(index);
                 Expanded(flex:1,
                     child: IconButton(icon: const Icon(Icons.edit_document) ,
-                  onPressed: (){
-                    viewmodel.bottomSheetBuilder(
+                      onPressed: (){
+                      viewmodel.bottomSheetBuilder(
                         EditBottom(task: viewmodel.getTaskTitle(index),
                           index: index,), context);
-
                   },));
-
               },
 
 
@@ -63,14 +59,12 @@ class Listview extends StatelessWidget {
                       leading: Checkbox(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40)),
-
                         side: const BorderSide(width: 2),
                         checkColor: Colors.black87,
                         activeColor: Colors.cyan,
                         value:viewmodel.getvalueoftask(index),
                         onChanged: (value){
                           viewmodel.setTaskValue(index, value!);
-
                         },
                       ),
 
@@ -78,20 +72,25 @@ class Listview extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.bold, color: Colors.black87)),
                       trailing: FittedBox(
-
                         fit: BoxFit.fill,
 
                         child: Row(
                           children: <Widget>[
-                            IconButton(icon: const Icon(Icons.delete), color: Colors.cyanAccent.shade700, iconSize: 23 ,
+                            IconButton(icon: const Icon(Icons.delete),
+                              color: Colors.cyanAccent.shade700, iconSize: 23 ,
                               onPressed: (){
                                 viewmodel.deleteTask(index);
                               },
                             ),
-                            IconButton(icon: const Icon(Icons.edit_document), color: Colors.cyanAccent.shade700, iconSize: 22,
+                            IconButton(icon: const Icon(Icons.edit_document),
+                              color: Colors.cyanAccent.shade700,
+                              iconSize: 22,
                               onPressed: (){
-                                Navigator.push(context, MaterialPageRoute(
-                                    builder: (context)=>AlertshowDialog()));
+                              viewmodel.bottomSheetBuilder(
+                                  EditBottom(task: viewmodel.getTaskTitle(index),
+                                    index: index,), context);
+                               // Navigator.push(context, MaterialPageRoute(
+                               //    builder: (context)=>AlertshowDialog()),);
                               },
                             ),
                           ],

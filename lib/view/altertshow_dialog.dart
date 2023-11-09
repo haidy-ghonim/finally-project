@@ -13,11 +13,22 @@ class AlertshowDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Model>(builder: (context, viewModel, child) {
       return AlertDialog(
-        title: const Text('AlertDialog Title'),
+        title: Center(
+            child: Text(
+          'Tour',
+          style: TextStyle(
+            fontSize: 40,
+            fontFamily: 'NotoSerifBalinese',
+          ),
+        )),
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              const Text('Add your Takes.'),
+              // const Text('Day & Time', style: TextStyle(fontSize: 20,
+              //     fontWeight:FontWeight.w400 ),),
+              SizedBox(
+                height: 10,
+              ),
               //
               TextField(
                 onSubmitted: (value) {
@@ -27,7 +38,8 @@ class AlertshowDialog extends StatelessWidget {
                   Navigator.of(context).pop();
                 },
                 decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.only(bottom: 5),
+                    hintText: "Enter Day & Time ",
+                    // contentPadding: const EdgeInsets.only(bottom: 5),
                     filled: true,
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
@@ -45,7 +57,13 @@ class AlertshowDialog extends StatelessWidget {
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('Save'),
+            child: Center(
+                child: Text('Save',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.cyan,
+                    ))),
             onPressed: () {
               Tasks newTask = Tasks(entryController.text, false);
               viewModel.addTask(newTask);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:joureny/view/model.dart';
 import 'package:provider/provider.dart';
 
@@ -14,12 +15,12 @@ class EditBottom extends StatelessWidget {
 
     return Consumer<Model>(builder: (context, viewmodel, child) {
       return AlertDialog(
-        title: const Text('AlertDialog Title'),
+        title: Center(child: const Text('Change Day & Time',
+          style: TextStyle(fontWeight:FontWeight.bold
+          ),)),
         content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[
-              const Text('Add your Takes.'),
-              //
               TextField(
                 onSubmitted: (value) {
                   if (entryController.text.isNotEmpty) {
@@ -29,14 +30,16 @@ class EditBottom extends StatelessWidget {
                     Navigator.pop(context);
                   }
                 },
+
                 decoration: InputDecoration(
                     contentPadding:
-                    const EdgeInsets.only(bottom: 5),
+                    const EdgeInsets.only(bottom: 20),
                     filled: true,
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: const BorderSide(
-                            width: 0, style: BorderStyle.none))),
+                    // border: OutlineInputBorder(
+                    //     borderRadius: BorderRadius.circular(20),
+                    //     borderSide: const BorderSide(
+                    //         width: 0, style: BorderStyle.none))
+                ),
                 textAlign: TextAlign.center,
                 textAlignVertical: TextAlignVertical.center,
                 autofocus: true,
@@ -50,7 +53,12 @@ class EditBottom extends StatelessWidget {
         ),
         actions: <Widget>[
           TextButton(
-              child: const Text('Save'),
+              child:  Center(
+                child: Text('Edit',style: TextStyle(fontSize: 21,
+                    color: Colors.pink  ,fontWeight: FontWeight.bold,
+                ),
+                ),
+              ),
               onPressed: () {
                 if (entryController.text.isNotEmpty) {
                   var task = entryController.text;
